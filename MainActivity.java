@@ -2,44 +2,66 @@ package com.example.quizapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.quizapp.databinding.ActivityMainBinding;
+
+
 public class MainActivity extends AppCompatActivity {
     int score = 0;
+
+    private ActivityMainBinding binding;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+
+
+        //"Show Correct Answers" buuton is Invisible by default
+        // Corect answers are hidden by defaulf
+
+        binding.showAnswersButton.setVisibility(View.GONE);
+        binding.resetButton.setVisibility(View.GONE);
+        binding.answersTextView.setVisibility(View.GONE);
 
 
     }
-    // this method reset score and answers and allows to start quiz again
-    public void reset(View view){
-        setContentView(R.layout.activity_main);
+
+    // this method reset score and answers and scroll to top of the screen.
+    public void reset(View view) {
+        binding.resetButton.setVisibility(View.GONE);
+        binding.answersTextView.setVisibility(View.GONE);
+        binding.scrollView.scrollTo(0, 0);
+
 
     }
 
 
+    //this method add points if chosen correct answer
+    // displays points & displays "Show Correct Answers" button
     public void submitAnswers(View view) {
 
         CheckBox bassador = findViewById(R.id.bassador);
         boolean bassadorIsChecked = bassador.isChecked();
         CheckBox cockapoo = findViewById(R.id.cockapoo);
         boolean cockapooIsChecked = cockapoo.isChecked();
+        CheckBox devon = findViewById(R.id.devon);
+        boolean devonischecked = devon.isChecked();
 
 
-        // the following methods add points if answer is true
+        // the following methods add points if answer is correct ;
 
-        if (cockapooIsChecked & bassadorIsChecked) {
+        if (cockapooIsChecked && bassadorIsChecked && !devonischecked) {
             score = score + 1;
 
         }
@@ -69,53 +91,87 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+        EditText question6 = findViewById(R.id.question6);
+        String answer = question6.getText().toString();
+        if (answer.trim().equalsIgnoreCase("elephant")) {
+            score = score + 2;  // +2 Points for open question
+
+        }
+
+
         displayPoints(score);
 
-
-        Context context = getApplicationContext();
-        CharSequence text5 = "Well done! You got maximum  " + score + "/5 Points! Your knowledge is really impressive :)";
-        CharSequence text4 = "Bravo! You got " + score + "/5 Points and it is a good result! ";
-        CharSequence text3 = "It could be better. You got " + score + "/5 Points!";
-        CharSequence text2 = "It is not your lucky day. You got only " + score + "/5 Points! Give it another try :)";
-        CharSequence text1 = "Please check the answers and try once again. You got only  " + score + "/5 Points! Don't give up!";
-        int duration = Toast.LENGTH_LONG;
+        //this method displays "Show Correct Answers" button after submiting answers.
+        binding.showAnswersButton.setVisibility(View.VISIBLE);
 
 
-        if (score == 5) {
-            Toast toast5 = Toast.makeText(context, text5, duration);
-            toast5.show();
+        CharSequence text0 = getString(R.string.toast_0_points);
+        CharSequence text6 = getString(R.string.text6_part1) + score + getString(R.string.text6_part2);
+        CharSequence text5 = getString(R.string.text5_part1) + score + getString(R.string.text5_part2);
+        CharSequence text4 = getString(R.string.text4_part1) + score + getString(R.string.text4_part2);
+        CharSequence text3 = getString(R.string.text3_part1) + score + getString(R.string.text3_part2);
+        CharSequence text2 = getString(R.string.text2_part1) + score + getString(R.string.text2_part2);
+        CharSequence text1 = getString(R.string.text1_part1) + score + getString(R.string.text1_part2);
+
+        //these methods display correct toast message according to scored points
+
+        if (score == 7) {
+            showToast(text6.toString());
+        } else {
+            showToast(text0.toString()); // displays Toast message when all of the answers are wrong
+        }
+
+        if (score == 5 | score == 6) {
+            showToast(text5.toString());
         }
 
         if (score == 4) {
-            Toast toast4 = Toast.makeText(context, text4, duration);
-            toast4.show();
+            showToast(text4.toString());
         }
         if (score == 3) {
-            Toast toast3 = Toast.makeText(context, text3, duration);
-            toast3.show();
+            showToast(text3.toString());
         }
 
         if (score == 2) {
-            Toast toast2 = Toast.makeText(context, text2, duration);
-            toast2.show();
-
+            showToast(text2.toString());
         }
 
         if (score == 1) {
-            Toast toast1 = Toast.makeText(context, text1, duration);
-            toast1.show();
-
-
+            showToast(text1.toString());
         }
-
 
         score = 0;
 
+        binding.resetButton.setVisibility(View.VISIBLE);
+    }
+
+    private void showToast(String toastMessage) {
+        Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
+    }
+
+    // this method display correct answers when called
+    //  and is only available after submitting the answers
+
+    public void answers(View view) {
+        String a1 = getString(R.string.answer1), a2 = getString(R.string.answer2), a3 = getString(R.string.answer3),
+                a4 = getString(R.string.asnwer4), a5 = getString(R.string.answer5), a6 = getString(R.string.answer6);
+        String correctAnswers = "\t\t" + a1 + "\t\t" + a2 + "\t\t" + a3 + "\n\n" + "\t\t"
+                + a4 + "\t\t" + a5 + "\t\t" + a6;
+
+        binding.answersTextView.setVisibility(View.VISIBLE);
+        binding.answersTextView.setText(correctAnswers);
+
+        //"Show Correct Answers" button disappear when clicked and correct answers are displayed
+        binding.showAnswersButton.setVisibility(View.GONE);
 
     }
 
+    // this method displays scored points when called
     private void displayPoints(int score) {
         TextView pointsTextView = findViewById(R.id.points);
-        pointsTextView.setText("Your score: " + score + " Points");
+        String a1 = getString(R.string.your_score);
+        String a2 = getString(R.string.points);
+        String finalPoints = a1 + score + a2;
+        pointsTextView.setText(finalPoints);
     }
 }
