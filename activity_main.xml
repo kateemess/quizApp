@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal"
-    tools:context=".MainActivity">
+    android:id="@+id/scrollView"
 
-    <LinearLayout
+    android:layout_gravity="center_horizontal"
+    tools:context=".MainActivity"
+    >
+
+
+<LinearLayout
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -20,42 +26,40 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/Q1" />
-
         <TextView
-            android:layout_gravity="center_horizontal"
-
             style="@style/QuestionStyle"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
             android:text="@string/question1" />
 
 
         <RadioGroup
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
 
             <RadioButton
-                android:layout_margin="8dp"
                 android:id="@+id/eel_fish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/eel_fish"
-              />
+                android:layout_margin="8dp"
+                android:text="@string/eel_fish" />
 
             <RadioButton
-                android:layout_margin="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@string/anaconda" />
 
             <RadioButton
-                android:layout_margin="8dp"
-
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@string/giant_oarfish" />
         </RadioGroup>
 
@@ -74,42 +78,41 @@
 
         <TextView
             style="@style/QuestionStyle"
-            android:layout_gravity="center_horizontal"
-
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
             android:text="@string/question2" />
 
 
-
         <RadioGroup
-            android:layout_gravity="center_horizontal"
-
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
 
             <RadioButton
-                android:layout_margin="8dp"
-
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@string/swan" />
 
             <RadioButton
                 android:layout_width="wrap_content"
-                android:layout_margin="8dp"
-
                 android:layout_height="wrap_content"
+
+                android:layout_margin="8dp"
                 android:text="@string/duck" />
 
             <RadioButton
-                android:layout_margin="8dp"
-
                 android:id="@+id/penguin"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@string/penguin" />
         </RadioGroup>
 
@@ -128,18 +131,18 @@
 
         <TextView
             style="@style/QuestionStyle"
-            android:layout_gravity="center_horizontal"
-
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
             android:text="@string/question3" />
 
         <LinearLayout
-            android:layout_gravity="center_horizontal"
-
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
 
 
@@ -158,6 +161,7 @@
                 android:text="@string/cockapoo" />
 
             <CheckBox
+                android:id="@+id/devon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -180,40 +184,40 @@
 
         <TextView
             style="@style/QuestionStyle"
-            android:layout_gravity="center_horizontal"
-
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
             android:text="@string/question4" />
 
         <RadioGroup
-            android:layout_gravity="center_horizontal"
-
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
 
             <RadioButton
-                android:layout_margin="8dp"
-
                 android:id="@+id/vienna"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@string/vienna" />
 
             <RadioButton
-                android:layout_margin="8dp"
-
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@string/london" />
 
             <RadioButton
-                android:layout_margin="8dp"
-
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@string/warsaw" />
         </RadioGroup>
 
@@ -232,39 +236,39 @@
 
         <TextView
             style="@style/QuestionStyle"
-            android:layout_gravity="center_horizontal"
-
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
             android:text="@string/question5" />
 
         <RadioGroup
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/whale"
-                android:layout_margin="8dp"
-
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@string/blue_whale" />
 
             <RadioButton
-                android:layout_margin="8dp"
-
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@string/african_elephant" />
 
             <RadioButton
-                android:layout_margin="8dp"
-
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@string/collosal_squid" />
         </RadioGroup>
 
@@ -279,24 +283,24 @@
             style="@style/HeaderStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Question 6." />
+            android:text="@string/question_6" />
 
         <TextView
             style="@style/QuestionStyle"
-            android:layout_gravity="center_horizontal"
-
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
-            android:text="What is the name of the only mammal that can't jump? " />
+            android:text="@string/q6" />
 
         <EditText
-            android:layout_gravity="center_horizontal"
             android:id="@+id/question6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:hint="@string/type_your_answer_here"
-            android:inputType="textCapWords"/>
+            android:inputType="textCapWords" />
 
         <View
             android:layout_width="350dp"
@@ -306,6 +310,7 @@
             android:background="@color/colorPrimary" />
 
         <Button
+            android:id="@+id/submitAnswersButton"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -321,8 +326,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
             android:background="@color/lightPrimary"
-            android:onClick="answers"
             android:text="@string/show_correct_answers" />
+
         <TextView
             android:id="@+id/answers_text_view"
             android:layout_width="wrap_content"
@@ -331,6 +336,7 @@
 
 
         <Button
+            android:id="@+id/resetButton"
             android:layout_width="200dp"
             android:layout_height="30dp"
             android:layout_gravity="center_horizontal"
